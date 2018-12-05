@@ -29,7 +29,7 @@ var StartBattle = {
             myShips["Shipname" + i] = (NameShips[Math.floor(Math.random() * NameShips.length )]);
             myShips["Shipcoords" + i] = StartBattle.ShipHide();
 
-           // document.write("The Map size is " + StartBattle.MapSize + " Name of Ship " + myShips["Shipname" + i] + " and his Coordinats is " + myShips["Shipcoords" + i ] + "<br>");
+            // document.write("The Map size is " + StartBattle.MapSize + " Name of Ship " + myShips["Shipname" + i] + " and his Coordinats is " + myShips["Shipcoords" + i ] + "<br>");
         }
     }, //Генерируем имя коробля и добавляем координаты
     BoxGen: function () {
@@ -39,10 +39,9 @@ var StartBattle = {
             if ( y == (xMap - 1)) {
                 mapa.push("<br>");
                 xMap = xMap + this.MapSize;
-                console.log(xMap);
             }
         }
-    }
+    } // Рисуем карту с id
 }
 
 
