@@ -1,0 +1,27 @@
+map = 5
+
+
+0001020304
+0506070809
+1011121314
+1516171819
+2021222324
+
+
+1 крабль = 5 ( (rnd = 04).09.14.19.24 ) x0 = rnd x1 = rnd + map
+x = 0
+chekpoints от 0 - (map-1) | map : map + (map-1) |
+for ( i = 0 ;i < myShips["ShipSize" + x];i++) {
+myShips["ShipCoordinats" + x ] = rnd ;
+}
+
+
+for (i=0;i<map ; i++){
+  if (i < map) {
+  chekpoint.push(i);
+  }
+  for ( x = map ; x == map*map - map ; x + map ) {
+  chekpoint.push(map+(map-1));
+  chekpoint.push(map+map);
+  }
+}

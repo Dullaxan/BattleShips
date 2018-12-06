@@ -3,21 +3,23 @@ var myShips = { };
 var mapa = [];
 
 var StartBattle = {
-    Start: function() {
+    Start: function () {
         this.MapSize = parseInt(prompt("Enter Map Size?"));
         this.Ships = parseInt(prompt("How many Ships?"));
         this.GenerateShips();
         this.BoxGen();
+        this.ShowMAP();
+        console.log(StartBattle.MapSize);
     }, //старт
     ShipHide: function () {
         var shipsize = prompt("Enter Size of Ship");
         while (shipsize > StartBattle.MapSize) { // Проверка коробля на размер
-            alert("To BIG MAX SIZE IS " + StartBattle.MapSize );
+            alert("To BIG MAX SIZE IS " + StartBattle.MapSize);
             shipsize = prompt("Enter New Size of Ship");
         }
 
         var mysShipX = [];
-        var randomloc = Math.floor(Math.random() * (StartBattle.MapSize - (shipsize - 1 )));
+        var randomloc = Math.floor(Math.random() * (StartBattle.MapSize - (shipsize - 1)));
         for (x = 0; x < shipsize; x++) {
             mysShipX.push(randomloc);
             randomloc = randomloc + 1;
@@ -25,8 +27,8 @@ var StartBattle = {
         return mysShipX;
     }, //Получаем координаты короблей
     GenerateShips: function () {
-        for ( i = 0;i < StartBattle.Ships ; i++) {
-            myShips["Shipname" + i] = (NameShips[Math.floor(Math.random() * NameShips.length )]);
+        for (i = 0; i < StartBattle.Ships; i++) {
+            myShips["Shipname" + i] = (NameShips[Math.floor(Math.random() * NameShips.length)]);
             myShips["Shipcoords" + i] = StartBattle.ShipHide();
 
             // document.write("The Map size is " + StartBattle.MapSize + " Name of Ship " + myShips["Shipname" + i] + " and his Coordinats is " + myShips["Shipcoords" + i ] + "<br>");
@@ -34,19 +36,28 @@ var StartBattle = {
     }, //Генерируем имя коробля и добавляем координаты
     BoxGen: function () {
         var xMap = this.MapSize;
-        for (y = 0;y < this.MapSize*this.MapSize ; y++) {
-            mapa.push("<div id="+y+" class='ship'>" + "</div>");
-            if ( y == (xMap - 1)) {
+        for (y = 0; y < this.MapSize * this.MapSize; y++) {
+            mapa.push("<div id=" + y + " class='ship' onclick='StartBattle.checkShip("+y+")'>" + "</div>");
+            if (y == (xMap - 1)) {
                 mapa.push("<br>");
                 xMap = xMap + this.MapSize;
             }
         }
-    } // Рисуем карту с id
-}
+    }, // Рисуем карту с id
+    checkShip: function (idship) {
+if (1>0){
+    alert(idship);
 
+}
+    }, // Проверка на попадание
+    ShowMAP: function () {
+        for (i=0;i<mapa.length;i++) {
+            document.write(mapa[i]);
+        }
+    }
+}
 
 StartBattle.Start();
-for (i=0;i<mapa.length;i++) {
-    document.write(mapa[i]);
-}
+
+
 
